@@ -5,21 +5,21 @@ import { Theme, Themed } from '../theme/Theme';
 
 const styles = getStyles();
 
-const AppLayout = () => (
+const AppLayout = Themed(
+  ({ theme }) => (
+    <div className={styles.wrapper(theme)}>
+      <Banner />
+    </div>
+  )
+);
+
+const ThemedLayout = () => (
   <Theme>
-    <Themed>
-      {
-        theme => (
-          <div className={styles.wrapper(theme)}>
-            <Banner />
-          </div>
-        )
-      }
-    </Themed>
+    <AppLayout />
   </Theme>
 );
 
-export default AppLayout;
+export default ThemedLayout;
 
 function getStyles() {
   return {

@@ -5,22 +5,16 @@ import wall from './wall.jpeg';
 
 const styles = getStyles();
 
-const Banner = () => (
-  <Themed>
-    {
-      theme => (
-        <div className={styles.wrapper(theme, wall)}>
-          <h1 className={styles.h1(theme)}>Aman Kumar Saini</h1>
-          <small>
-            <em>The JavaScript Guy</em>
-          </small>
-        </div>
-      )
-    }
-  </Themed>
+const Banner = ({ theme }) => (
+  <div className={styles.wrapper(theme, wall)}>
+    <h1 className={styles.h1(theme)}>Aman Kumar Saini</h1>
+    <small>
+      <em>The JavaScript Guy</em>
+    </small>
+  </div>
 );
 
-export default Banner;
+export default Themed(Banner);
 
 function getStyles() {
   return {
